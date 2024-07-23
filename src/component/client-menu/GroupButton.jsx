@@ -21,11 +21,8 @@ const GroupButton = () => {
 
   return (
     <Container fluid className="d-flex flex-column gap-2 m-0 p-0">
-      <h1>A tutta Birra!</h1>
-      <p style={{ fontSize: "18px" }}>
-        Gli articoli segnati con <b>*</b> indicano che è presente la cauzione
-        per il boccale!
-      </p>
+      <h1>ArancinoMania!</h1>
+
       {reparti &&
         reparti.length > 0 &&
         reparti.map((dish) => (

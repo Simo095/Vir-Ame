@@ -11,7 +11,7 @@ import {
   checkObjToDBAndMenu,
 } from "../../redux/action/cartAction";
 
-const HeaderMenu = ({ setLoadingProp }) => {
+const HeaderMenu = () => {
   const [showModalCart, setShowModalCart] = useState(false);
   const [showModalQr, setShowModalQr] = useState(false);
 

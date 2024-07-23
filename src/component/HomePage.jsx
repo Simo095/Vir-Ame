@@ -1,5 +1,5 @@
 import { Button, Container, Image } from "react-bootstrap";
-import logoFest from "../asset/img/logoHeaderFest.jpg";
+import logoph from "../asset/img/logoplaceholder.png";
 import logoPos from "../asset/img/logopos.png";
 import { FaRegHandPointer } from "react-icons/fa6";
 
@@ -15,7 +15,7 @@ const HomePage = () => {
     >
       <Container fluid className="m-0 p-0 text-center">
         <Image
-          src={logoFest}
+          src={logoph}
           className="m-0 p-0 ms-2 "
           style={{ width: "300px" }}
         />

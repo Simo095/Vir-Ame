@@ -79,7 +79,7 @@ export const checkObjToDBAndMenu = (
   return async (dispatch) => {
     try {
       const ListBlobMenu = await fetch(
-        `https://festival-menu.vercel.app/api/get`,
+        `https://arancino-mania.vercel.app/api/get`,
         {
           method: "GET",
         }
