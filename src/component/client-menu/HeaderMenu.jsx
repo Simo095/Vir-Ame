@@ -53,7 +53,7 @@ const HeaderMenu = () => {
             style={{
               backgroundImage: `url(${logo})`,
               backgroundPosition: "center",
-              backgroundSize: "50% 100%",
+              backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
             }}
           ></Col>

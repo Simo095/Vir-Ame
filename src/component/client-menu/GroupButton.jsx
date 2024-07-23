@@ -38,23 +38,15 @@ const GroupButton = () => {
               {dish.ward.name.toLowerCase() === "antipasto" ||
               dish.ward.name.toLowerCase() === "antipasti" ? (
                 <Image width={60} src={antipasto} />
-              ) : dish.ward.name.toLowerCase() === "primo" ||
-                dish.ward.name.toLowerCase() === "primi" ||
-                dish.ward.name.toLowerCase() === "primi piatti" ||
+              ) : dish.ward.name.toLowerCase().includes("primo") ||
+                dish.ward.name.toLowerCase().includes("primi") ||
                 dish.ward.name.toLowerCase() === "cucina" ? (
                 <Image width={60} src={primo} />
-              ) : dish.ward.name.toLowerCase() === "secondo" ||
-                dish.ward.name.toLowerCase() === "secondi piatti" ||
-                dish.ward.name.toLowerCase() === "secondi" ? (
+              ) : dish.ward.name.toLowerCase().includes("secondi") ||
+                dish.ward.name.toLowerCase().includes("secondo") ? (
                 <Image width={60} src={secondo} />
-              ) : dish.ward.name.toLowerCase() === "contorno" ||
-                dish.ward.name.toUpperCase() === "contorno" ||
-                dish.ward.name.toLowerCase() === "contorni " ||
-                dish.ward.name.toUpperCase() === "contorni " ||
-                dish.ward.name.toLowerCase() === "contorno " ||
-                dish.ward.name.toUpperCase() === "contorno " ||
-                dish.ward.name.toLowerCase() === "contorni" ||
-                dish.ward.name.toUpperCase() === "contorni" ? (
+              ) : dish.ward.name.toLowerCase().includes("contorno") ||
+                dish.ward.name.toUpperCase().includes("contorni") ? (
                 <Image width={60} src={contorno} />
               ) : dish.ward.name.toLowerCase() === "bevanda" ||
                 dish.ward.name.toLowerCase() === "bevande" ||
