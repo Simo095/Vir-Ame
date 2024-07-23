@@ -2,7 +2,10 @@ import { Container, Image, Modal } from "react-bootstrap";
 import QRCode from "react-qr-code";
 import scanqr from "../../asset/img/scanqr.png";
 import { useSelector } from "react-redux";
+import { ImWhatsapp } from "react-icons/im";
 import { IoChevronBackCircle } from "react-icons/io5";
+import { useRef } from "react";
+import html2canvas from "html2canvas";
 
 const ModalQR = ({
   showProp,
@@ -12,6 +15,27 @@ const ModalQR = ({
 }) => {
   const qntCartApp = useSelector((state) => state.cart.qnt);
 
+  const exportRef = useRef();
+
+  const exportAsImage = async (el, imageFileName) => {
+    const canvas = await html2canvas(element);
+    const image = canvas.toDataURL("image/png", 1.0);
+    downloadImage(image, imageFileName);
+  };
+
+  const downloadImage = (blob, fileName) => {
+    const fakeLink = window.document.createElement("a");
+    fakeLink.style = "display:none;";
+    fakeLink.download = fileName;
+
+    fakeLink.href = blob;
+
+    document.body.appendChild(fakeLink);
+    fakeLink.click();
+    document.body.removeChild(fakeLink);
+
+    fakeLink.remove();
+  };
   return (
     <Container className="m-0 p-0" fluid>
       <Modal
@@ -42,7 +66,7 @@ const ModalQR = ({
           </Container>
         </Modal.Header>
         <Modal.Body>
-          <Container className="d-flex justify-content-center">
+          <Container ref={exportRef} className="d-flex justify-content-center">
             <QRCode
               className="m-4"
               value={
@@ -59,8 +83,14 @@ const ModalQR = ({
               Articoli Totali: <p className="fs-4">{qntCartApp}</p>
             </p>
             <p className="text-center">
-              Chiudi dopo aver letto il QR in cassa, <b>Grazie!</b>
+              Chiudi dopo aver letto il QR in cassa, oppure condividi il QR con
+              What App <b>Grazie!</b>
             </p>
+            <ImWhatsapp
+              onClick={() => {
+                exportAsImage(exportRef.current, "QR");
+              }}
+            />
           </Container>
         </Modal.Footer>
       </Modal>

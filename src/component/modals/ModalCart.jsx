@@ -21,9 +21,9 @@ const ModalCart = ({
 }) => {
   //const dispatch = useDispatch();
   //const noteAppProp = useSelector((state) => state.cart.note);
-  // const notRightQuantity = useSelector(
-  //   (state) => state.errorCart.listDishNotInStock
-  // );
+  const notRightQuantity = useSelector(
+    (state) => state.errorCart.listDishNotInStock
+  );
   const menuProp = useSelector((state) => state.menu.menu);
   const cartTotalProp = useSelector((state) => state.cart.total);
 
@@ -35,42 +35,28 @@ const ModalCart = ({
 
   useEffect(() => {
     //dispatch(checkMenuBlob());
-    let newTotalCaution = 0;
-    if (repetedDishStateProp) {
-      Object.keys(repetedDishStateProp).forEach((idDish) => {
-        if (!["FS_QR", "tavolo", "richiestastock", "note"].includes(idDish)) {
-          menuProp.forEach((dish) => {
-            if (dish.id.toString() === idDish && dish.name.includes("*")) {
-              newTotalCaution += repetedDishStateProp[idDish];
-              console.log(repetedDishStateProp[idDish]);
-              console.log(repetedDishStateProp);
-            }
-          });
-        }
-      });
-    }
-    setTotalCaution(newTotalCaution);
-    // return () => {
-    //   if (notRightQuantity.length > 0) {
-    //     notRightQuantity.map((id) =>
-    //       repetedDishStateProp.map((dish) =>
-    //         dish === "FS_QR"
-    //           ? null
-    //           : dish === "tavolo"
-    //           ? null
-    //           : dish === "richiestastock"
-    //           ? null
-    //           : dish === "note"
-    //           ? null
-    //           : parseInt(dish) === parseInt(id)
-    //           ? delete repetedDishStateProp[id]
-    //           : null
-    //       )
-    //    );
-    //  }
-    // };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [repetedDishStateProp, menuProp]);
+    console.log("loop");
+    return () => {
+      if (notRightQuantity.length > 0) {
+        notRightQuantity.map((id) =>
+          repetedDishStateProp.map((dish) =>
+            dish === "FS_QR"
+              ? null
+              : dish === "tavolo"
+              ? null
+              : dish === "richiestastock"
+              ? null
+              : dish === "note"
+              ? null
+              : parseInt(dish) === parseInt(id)
+              ? delete repetedDishStateProp[id]
+              : null
+          )
+        );
+      }
+    };
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [repetedDishStateProp, menuProp, notRightQuantity]);
 
   return (
     <Container fluid className="m-0 p-0">
@@ -159,11 +145,6 @@ const ModalCart = ({
                 <Col xs={12}>
                   <div className="fw-bold me-2 mt-2 fs-5 d-flex flex-column">
                     <span>Totale: €{parseFloat(cartTotalProp).toFixed(2)}</span>
-                    {/* <span>
-                      Totale Cauzioni: €
-                      {(parseFloat(totalCaution) * 5).toFixed(2)}
-                    </span> */}
-                    <span>Totale: €{parseFloat(cartTotalProp).toFixed(2)}</span>
                   </div>
                 </Col>
               </Row>
@@ -239,18 +220,7 @@ const ModalCart = ({
                 <Col xs={12}>
                   <div className="fw-bold me-2 mt-2 fs-5 d-flex flex-column">
                     <span>
-                      Totale Prodotti: € {parseFloat(cartTotalProp).toFixed(2)}
-                    </span>
-                    <p style={{ fontSize: "18px" }}>
-                      Totale Cauzioni: €{" "}
-                      {(parseFloat(totalCaution) * 5).toFixed(2)}
-                    </p>
-                    <span className="fw-bold">
-                      Totale: €{" "}
-                      {(
-                        parseFloat(cartTotalProp) +
-                        parseFloat(totalCaution) * 5
-                      ).toFixed(2)}
+                      Totale: € {parseFloat(cartTotalProp).toFixed(2)}
                     </span>
                   </div>
                 </Col>
