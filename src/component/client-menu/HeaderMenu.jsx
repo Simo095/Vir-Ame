@@ -4,7 +4,7 @@ import { FaArrowCircleUp } from "react-icons/fa";
 import { Button, Col, Container, Navbar, Row } from "react-bootstrap";
 import ModalCart from "../modals/ModalCart";
 import ModalQR from "../modals/ModalQR";
-import logo from "../../asset/img/logoplaceholder.png";
+import logo from "../../asset/img/logo.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import {
   modifyObjToDB,

@@ -1,5 +1,5 @@
 import { Button, Container, Image } from "react-bootstrap";
-import logoph from "../asset/img/logoplaceholder.png";
+import logoph from "../asset/img/logo.jpg";
 import logoPos from "../asset/img/logopos.png";
 import { FaRegHandPointer } from "react-icons/fa6";
 

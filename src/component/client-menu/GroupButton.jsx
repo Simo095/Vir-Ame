@@ -39,12 +39,17 @@ const GroupButton = () => {
                 <Image width={60} src={antipasto} />
               ) : dish.ward.name.toLowerCase() === "primo" ||
                 dish.ward.name.toLowerCase() === "primi" ||
+                dish.ward.name.toLowerCase() === "primi piatti" ||
                 dish.ward.name.toLowerCase() === "cucina" ? (
                 <Image width={60} src={primo} />
               ) : dish.ward.name.toLowerCase() === "secondo" ||
+                dish.ward.name.toLowerCase() === "secondi piatti" ||
                 dish.ward.name.toLowerCase() === "secondi" ? (
                 <Image width={60} src={secondo} />
-              ) : dish.ward.name.toLowerCase() === "contorno" ||
+              ) : //CONTORNI
+              dish.ward.name.toLowerCase() === "contorno" ||
+                dish.ward.name.toLowerCase() === "CONTORNO" ||
+                dish.ward.name.toLowerCase() === "CONTORNI" ||
                 dish.ward.name.toLowerCase() === "contorni" ? (
                 <Image width={60} src={contorno} />
               ) : dish.ward.name.toLowerCase() === "bevanda" ||
