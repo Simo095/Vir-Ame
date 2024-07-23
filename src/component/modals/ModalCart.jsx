@@ -27,8 +27,6 @@ const ModalCart = ({
   const menuProp = useSelector((state) => state.menu.menu);
   const cartTotalProp = useSelector((state) => state.cart.total);
 
-  const [totalCaution, setTotalCaution] = useState(0);
-
   const [showCancel, setShowCancel] = useState(false);
   const handleCloseCancel = () => setShowCancel(false);
   const handleShowCancel = () => setShowCancel(true);
