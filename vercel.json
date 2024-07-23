@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/get", "destination": "/api/getMenu" },
+    { "source": "/api/post", "destination": "/api/updateMenu" }
+  ]
+}

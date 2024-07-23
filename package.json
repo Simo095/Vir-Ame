@@ -1,0 +1,74 @@
+{
+  "private": true,
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ]
+  },
+  "name": "front-end",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "scripts": {
+    "eject": "react-scripts eject",
+    "test": "react-scripts test",
+    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "vercel-build": "npm run build"
+  },
+  "version": "0.1.0",
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.5",
+    "@stomp/stompjs": "^7.0.0",
+    "@stripe/react-stripe-js": "^2.7.0",
+    "@stripe/stripe-js": "^3.3.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@vercel/blob": "^0.23.4",
+    "@vercel/node": "^3.2.2",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "html2canvas": "^1.4.1",
+    "http-proxy-middleware": "^3.0.0",
+    "mssql": "^11.0.1",
+    "multiparty": "^4.2.3",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.4",
+    "path": "^0.12.7",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "react-qr-code": "^2.0.12",
+    "react-redux": "^9.1.2",
+    "react-router": "^6.22.3",
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "5.0.1",
+    "react-scroll": "^1.9.0",
+    "redux-persist": "^6.0.0",
+    "redux-persist-transform-encrypt": "^5.1.1",
+    "sockjs-client": "^1.6.1",
+    "stompjs": "^2.3.3",
+    "web-vitals": "^2.1.4",
+    "websocket": "^1.0.34",
+    "webstomp-client": "^1.2.6"
+  },
+  "devDependencies": {
+    "source-map-loader": "^5.0.0"
+  }
+}
