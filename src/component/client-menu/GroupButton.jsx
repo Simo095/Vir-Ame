@@ -48,9 +48,9 @@ const GroupButton = () => {
                 <Image width={60} src={secondo} />
               ) : //CONTORNI
               dish.ward.name.toLowerCase() === "contorno" ||
-                dish.ward.name.toLowerCase() === "CONTORNO" ||
-                dish.ward.name.toLowerCase() === "CONTORNI" ||
-                dish.ward.name.toLowerCase() === "contorni" ? (
+                dish.ward.name.toUpperCase() === "contorno" ||
+                dish.ward.name.toLowerCase() === "contorni" ||
+                dish.ward.name.toUpperCase() === "contorni" ? (
                 <Image width={60} src={contorno} />
               ) : dish.ward.name.toLowerCase() === "bevanda" ||
                 dish.ward.name.toLowerCase() === "bevande" ||
