@@ -65,8 +65,8 @@ const ModalQR = ({
             </p>
           </Container>
         </Modal.Header>
-        <Modal.Body>
-          <Container ref={exportRef} className="d-flex justify-content-center">
+        <Modal.Body ref={exportRef}>
+          <Container className="d-flex justify-content-center">
             <QRCode
               className="m-4"
               value={
