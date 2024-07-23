@@ -46,7 +46,7 @@ const GroupButton = () => {
                 dish.ward.name.toLowerCase().includes("secondo") ? (
                 <Image width={60} src={secondo} />
               ) : dish.ward.name.toLowerCase().includes("contorno") ||
-                dish.ward.name.toUpperCase().includes("contorni") ? (
+                dish.ward.name.toLowerCase().includes("contorni") ? (
                 <Image width={60} src={contorno} />
               ) : dish.ward.name.toLowerCase() === "bevanda" ||
                 dish.ward.name.toLowerCase() === "bevande" ||
