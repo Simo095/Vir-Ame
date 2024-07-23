@@ -4,7 +4,7 @@ import { FaArrowCircleUp } from "react-icons/fa";
 import { Button, Col, Container, Navbar, Row } from "react-bootstrap";
 import ModalCart from "../modals/ModalCart";
 import ModalQR from "../modals/ModalQR";
-import logo from "../../asset/img/logo.jpg";
+import logo from "../../asset/img/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
   modifyObjToDB,
@@ -53,7 +53,7 @@ const HeaderMenu = () => {
             style={{
               backgroundImage: `url(${logo})`,
               backgroundPosition: "center",
-              backgroundSize: "240px",
+              backgroundSize: "50% 100%",
               backgroundRepeat: "no-repeat",
             }}
           ></Col>

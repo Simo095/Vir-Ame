@@ -15,13 +15,14 @@ import secondo from "../../asset/img/secondo.png";
 import beer from "../../asset/img/beer.png";
 import gelato from "../../asset/img/gelato.png";
 import bar from "../../asset/img/bar.png";
+import sandwich from "../../asset/img/sandwich.png";
 
 const GroupButton = () => {
   const reparti = useSelector((state) => state.menu.ward);
 
   return (
     <Container fluid className="d-flex flex-column gap-2 m-0 p-0">
-      <h1>ArancinoMania!</h1>
+      <h1>Arancino Mania!</h1>
 
       {reparti &&
         reparti.length > 0 &&
@@ -46,14 +47,13 @@ const GroupButton = () => {
                 dish.ward.name.toLowerCase() === "secondi piatti" ||
                 dish.ward.name.toLowerCase() === "secondi" ? (
                 <Image width={60} src={secondo} />
-              ) : //CONTORNI
-              dish.ward.name.toLowerCase() === "contorno" ||
+              ) : dish.ward.name.toLowerCase() === "contorno" ||
                 dish.ward.name.toUpperCase() === "contorno" ||
-                dish.ward.name.toLowerCase() === "contorni" ||
                 dish.ward.name.toLowerCase() === "contorni " ||
                 dish.ward.name.toUpperCase() === "contorni " ||
                 dish.ward.name.toLowerCase() === "contorno " ||
                 dish.ward.name.toUpperCase() === "contorno " ||
+                dish.ward.name.toLowerCase() === "contorni" ||
                 dish.ward.name.toUpperCase() === "contorni" ? (
                 <Image width={60} src={contorno} />
               ) : dish.ward.name.toLowerCase() === "bevanda" ||
@@ -86,8 +86,11 @@ const GroupButton = () => {
               ) : dish.ward.name.toLowerCase() === "gelato" ||
                 dish.ward.name.toLowerCase() === "gelati" ? (
                 <Image width={60} src={gelato} />
-              ) : dish.ward.name.toLowerCase() === "bar" ? (
+              ) : dish.ward.name.toLowerCase().includes("bar") ? (
                 <Image width={60} src={bar} />
+              ) : dish.ward.name.toLowerCase().includes("panini") ||
+                dish.ward.name.toLowerCase().icludes("panino") ? (
+                <Image width={60} src={sandwich} />
               ) : null}
               <span>{dish.ward.name}</span>
             </div>
