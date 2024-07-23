@@ -18,7 +18,7 @@ const ModalQR = ({
   const exportRef = useRef();
 
   const exportAsImage = async (el, imageFileName) => {
-    const canvas = await html2canvas(element);
+    const canvas = await html2canvas(el);
     const image = canvas.toDataURL("image/png", 1.0);
     downloadImage(image, imageFileName);
   };
