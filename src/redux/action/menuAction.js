@@ -33,13 +33,20 @@ export const fetchMenuActionBlob = () => {
       if (ListBlobMenu.ok) {
         dispatch(notFound(false));
         const menuJson = await ListBlobMenu.json();
-        const lastMenuInsert = menuJson.reduce((latest, current) => {
-          return new Date(current.uploadedAt) > new Date(latest.uploadedAt)
-            ? current
-            : latest;
-        }, menuJson[0]);
+        const menuFiltered = menuJson
+          .filter((file) => file.pathname.startsWith(`am`))
+          .reduce((latest, current) => {
+            return new Date(current.uploadedAt) > new Date(latest.uploadedAt)
+              ? current
+              : latest;
+          }, menuJson[0]);
+        if (!menuFiltered) throw new Error("file non trovato!" + menuFiltered);
 
-        const response = await fetch(lastMenuInsert.url);
+        // const lastMenuInsert = menuJson.reduce((latest, current) => {
+        //   return new Date(current.uploadedAt) > new Date(latest.uploadedAt) ? current : latest;
+        // }, menuJson[0]);
+
+        const response = await fetch(menuFiltered.url);
         const objMenuResponse = await response.json();
 
         const sortedDishes = [...objMenuResponse].sort(
@@ -79,12 +86,20 @@ export const checkMenuBlob = () => {
       if (ListBlobMenu.ok) {
         dispatch(notFound(false));
         const menuJson = await ListBlobMenu.json();
-        const lastMenuInsert = menuJson.reduce((latest, current) => {
-          return new Date(current.uploadedAt) > new Date(latest.uploadedAt)
-            ? current
-            : latest;
-        }, menuJson[0]);
-        const response = await fetch(lastMenuInsert.url);
+        const menuFiltered = menuJson
+          .filter((file) => file.pathname.startsWith(`am`))
+          .reduce((latest, current) => {
+            return new Date(current.uploadedAt) > new Date(latest.uploadedAt)
+              ? current
+              : latest;
+          }, menuJson[0]);
+        if (!menuFiltered) throw new Error("file non trovato!" + menuFiltered);
+
+        // const lastMenuInsert = menuJson.reduce((latest, current) => {
+        //   return new Date(current.uploadedAt) > new Date(latest.uploadedAt) ? current : latest;
+        // }, menuJson[0]);
+
+        const response = await fetch(menuFiltered.url);
         const objMenuResponse = await response.json();
         const sortedDishes = [...objMenuResponse].sort(
           (a, b) => a.ward.id - b.ward.id

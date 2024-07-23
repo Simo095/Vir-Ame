@@ -14,7 +14,7 @@ export default async function updateMenuHandler(req, res) {
       const buffer = Buffer.concat(chunks);
       const csvData = buffer.toString("utf-8");
       const parsedData = await parseCSV(csvData);
-      const filename = "menu.json";
+      const filename = "am.json";
       const blob = await put(filename, JSON.stringify(parsedData), {
         access: "public",
       });
