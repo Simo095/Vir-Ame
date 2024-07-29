@@ -4,7 +4,7 @@ import scanqr from "../../asset/img/scanqr.png";
 import { useSelector } from "react-redux";
 import { ImWhatsapp } from "react-icons/im";
 import { IoChevronBackCircle } from "react-icons/io5";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import html2canvas from "html2canvas";
 
 const ModalQR = ({
