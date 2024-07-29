@@ -16,6 +16,11 @@ const ModalQR = ({
   const qntCartApp = useSelector((state) => state.cart.qnt);
 
   const exportRef = useRef();
+  const [qrKey, setQrKey] = useState(0); // Force re-render of QR code
+
+  useEffect(() => {
+    setQrKey((prevKey) => prevKey + 1); // Increment key to force re-render
+  }, [repetedDishStateProp]);
 
   const exportAsImage = async (el, imageFileName) => {
     const canvas = await html2canvas(el, {
