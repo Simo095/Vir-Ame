@@ -68,7 +68,7 @@ const ModalQR = ({
         <Modal.Body ref={exportRef}>
           <Container className="d-flex justify-content-center">
             <QRCode
-              className="m-4"
+              className="m-4 p-3"
               value={
                 repetedDishStateProp
                   ? JSON.stringify(repetedDishStateProp)

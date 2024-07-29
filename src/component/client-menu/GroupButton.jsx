@@ -22,7 +22,7 @@ const GroupButton = () => {
 
   return (
     <Container fluid className="d-flex flex-column gap-2 m-0 p-0">
-      <h1>Arancino Mania!</h1>
+      <h1>Vir Ame</h1>
 
       {reparti &&
         reparti.length > 0 &&
@@ -35,8 +35,8 @@ const GroupButton = () => {
             duration={100}
           >
             <div className="btn-group d-flex gap-3">
-              {dish.ward.name.toLowerCase() === "antipasto" ||
-              dish.ward.name.toLowerCase() === "antipasti" ? (
+              {dish.ward.name.toLowerCase().includes("antipasto") ||
+              dish.ward.name.toLowerCase().includes("antipasti") ? (
                 <Image width={60} src={antipasto} />
               ) : dish.ward.name.toLowerCase().includes("primo") ||
                 dish.ward.name.toLowerCase().includes("primi") ||
@@ -48,20 +48,20 @@ const GroupButton = () => {
               ) : dish.ward.name.toLowerCase().includes("contorno") ||
                 dish.ward.name.toLowerCase().includes("contorni") ? (
                 <Image width={60} src={contorno} />
-              ) : dish.ward.name.toLowerCase() === "bevanda" ||
-                dish.ward.name.toLowerCase() === "bevande" ||
-                dish.ward.name.toLowerCase() === "bibita" ||
-                dish.ward.name.toLowerCase() === "bibite" ? (
+              ) : dish.ward.name.toLowerCase().includes("bevanda") ||
+                dish.ward.name.toLowerCase().includes("bevande") ||
+                dish.ward.name.toLowerCase().includes("bibita") ||
+                dish.ward.name.toLowerCase().includes("bibite") ? (
                 <Image width={60} src={bevanda} />
-              ) : dish.ward.name.toLowerCase() === "dolce" ||
-                dish.ward.name.toLowerCase() === "dolci" ? (
+              ) : dish.ward.name.toLowerCase().includes("dolce") ||
+                dish.ward.name.toLowerCase().includes("dolci") ? (
                 <Image width={60} src={dolce} />
-              ) : dish.ward.name.toLowerCase() === "pesce" ||
-                dish.ward.name.toLowerCase() === "pesci" ||
-                dish.ward.name.toLowerCase() === "mare" ? (
+              ) : dish.ward.name.toLowerCase().includes("pesci") ||
+                dish.ward.name.toLowerCase().includes("pesce") ||
+                dish.ward.name.toLowerCase().includes("mare") ? (
                 <Image width={60} src={pesce} />
-              ) : dish.ward.name.toLowerCase() === "pizza" ||
-                dish.ward.name.toLowerCase() === "pizze" ? (
+              ) : dish.ward.name.toLowerCase().includes("pizza") ||
+                dish.ward.name.toLowerCase().includes("pizze") ? (
                 <Image width={60} src={pizza} />
               ) : dish.ward.name.toLowerCase() === "insalata" ||
                 dish.ward.name.toLowerCase() === "insalate" ? (
