@@ -4,7 +4,7 @@ import scanqr from "../../asset/img/scanqr.png";
 import { useSelector } from "react-redux";
 import { ImWhatsapp } from "react-icons/im";
 import { IoChevronBackCircle } from "react-icons/io5";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import html2canvas from "html2canvas";
 
 const ModalQR = ({
@@ -16,11 +16,6 @@ const ModalQR = ({
   const qntCartApp = useSelector((state) => state.cart.qnt);
 
   const exportRef = useRef();
-  const [qrKey, setQrKey] = useState(0); // Force re-render of QR code
-  // eslint-disable-next-line to the line before
-  useEffect(() => {
-    setQrKey((prevKey) => prevKey + 1); // Increment key to force re-render
-  }, [repetedDishStateProp]);
 
   const exportAsImage = async (el, imageFileName) => {
     const canvas = await html2canvas(el, {
