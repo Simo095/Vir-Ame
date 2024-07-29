@@ -248,15 +248,15 @@ const ModalQR = ({
   //   downloadImage(image, imageFileName);
   // };
 
-  const downloadImage = (blob, fileName) => {
-    const fakeLink = document.createElement("a");
-    fakeLink.style.display = "none";
-    fakeLink.download = fileName;
-    fakeLink.href = blob;
-    document.body.appendChild(fakeLink);
-    fakeLink.click();
-    document.body.removeChild(fakeLink);
-  };
+  // const downloadImage = (blob, fileName) => {
+  //   const fakeLink = document.createElement("a");
+  //   fakeLink.style.display = "none";
+  //   fakeLink.download = fileName;
+  //   fakeLink.href = blob;
+  //   document.body.appendChild(fakeLink);
+  //   fakeLink.click();
+  //   document.body.removeChild(fakeLink);
+  // };
 
   const shareImageOnWhatsApp = async () => {
     const el = exportRef.current;
