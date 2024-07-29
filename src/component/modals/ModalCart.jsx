@@ -33,7 +33,6 @@ const ModalCart = ({
 
   useEffect(() => {
     //dispatch(checkMenuBlob());
-    console.log("loop");
     return () => {
       if (notRightQuantity.length > 0) {
         notRightQuantity.map((id) =>

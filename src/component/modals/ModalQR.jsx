@@ -15,6 +15,22 @@ const ModalQR = ({
 }) => {
   const qntCartApp = useSelector((state) => state.cart.qnt);
   const exportRef = useRef();
+  const getOrderedDishesText = () => {
+    return Object.keys(repetedDishStateProp)
+      .filter(
+        (idDish) =>
+          idDish !== "FS_QR" &&
+          idDish !== "tavolo" &&
+          idDish !== "richiestastock" &&
+          idDish !== "note"
+      )
+      .map((idDish) => {
+        const dish = menu.find((dish) => dish.id.toString() === idDish);
+        return dish ? dish.name : null;
+      })
+      .filter((dishName) => dishName !== null)
+      .join(", ");
+  };
 
   const shareImageOnWhatsApp = async () => {
     const el = exportRef.current;
@@ -26,11 +42,12 @@ const ModalQR = ({
     canvas.toBlob((blob) => {
       const file = new File([blob], "QR.png", { type: "image/png" });
       const filesArray = [file];
+      const orderedDishesText = getOrderedDishesText();
       if (navigator.canShare && navigator.canShare({ files: filesArray })) {
         navigator.share({
           files: filesArray,
           title: "QR Code",
-          text: JSON.stringify(repetedDishStateProp),
+          text: `Ecco il QR code per i seguenti piatti ordinati: ${orderedDishesText}`,
         });
       } else {
         alert("Condivisione di file non supportata dal tuo browser.");
