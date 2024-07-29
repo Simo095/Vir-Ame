@@ -238,15 +238,15 @@ const ModalQR = ({
   const qntCartApp = useSelector((state) => state.cart.qnt);
   const exportRef = useRef();
 
-  const exportAsImage = async (el, imageFileName) => {
-    const canvas = await html2canvas(el, {
-      scale: 2, // Increase resolution
-      useCORS: true, // Handle cross-origin issues
-      backgroundColor: null, // Ensure background is transparent
-    });
-    const image = canvas.toDataURL("image/png", 1.0);
-    downloadImage(image, imageFileName);
-  };
+  // const exportAsImage = async (el, imageFileName) => {
+  //   const canvas = await html2canvas(el, {
+  //     scale: 2, // Increase resolution
+  //     useCORS: true, // Handle cross-origin issues
+  //     backgroundColor: null, // Ensure background is transparent
+  //   });
+  //   const image = canvas.toDataURL("image/png", 1.0);
+  //   downloadImage(image, imageFileName);
+  // };
 
   const downloadImage = (blob, fileName) => {
     const fakeLink = document.createElement("a");
