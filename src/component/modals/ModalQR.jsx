@@ -226,7 +226,7 @@ import scanqr from "../../asset/img/scanqr.png";
 import { useSelector } from "react-redux";
 import { ImWhatsapp } from "react-icons/im";
 import { IoChevronBackCircle } from "react-icons/io5";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import html2canvas from "html2canvas";
 
 const ModalQR = ({
@@ -237,17 +237,15 @@ const ModalQR = ({
 }) => {
   const qntCartApp = useSelector((state) => state.cart.qnt);
   const exportRef = useRef();
-  const [imageUrl, setImageUrl] = useState("");
 
-  const exportAsImage = async (el) => {
+  const exportAsImage = async (el, imageFileName) => {
     const canvas = await html2canvas(el, {
-      scale: 2,
-      useCORS: true,
-      backgroundColor: null,
+      scale: 2, // Increase resolution
+      useCORS: true, // Handle cross-origin issues
+      backgroundColor: null, // Ensure background is transparent
     });
     const image = canvas.toDataURL("image/png", 1.0);
-    setImageUrl(image);
-    downloadImage(image, "QR.png");
+    downloadImage(image, imageFileName);
   };
 
   const downloadImage = (blob, fileName) => {
@@ -258,14 +256,28 @@ const ModalQR = ({
     document.body.appendChild(fakeLink);
     fakeLink.click();
     document.body.removeChild(fakeLink);
-    sendViaWhatsApp(imageUrl);
   };
 
-  const sendViaWhatsApp = (image) => {
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(
-      "Ecco il QR code: " + image
-    )}`;
-    window.open(whatsappUrl, "_blank");
+  const shareImageOnWhatsApp = async () => {
+    const el = exportRef.current;
+    const canvas = await html2canvas(el, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: null,
+    });
+    canvas.toBlob((blob) => {
+      const file = new File([blob], "QR.png", { type: "image/png" });
+      const filesArray = [file];
+      if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+        navigator.share({
+          files: filesArray,
+          title: "QR Code",
+          text: "Ecco il tuo QR Code",
+        });
+      } else {
+        alert("Condivisione di file non supportata dal tuo browser.");
+      }
+    });
   };
 
   return (
@@ -320,13 +332,10 @@ const ModalQR = ({
             </p>
             <p className="text-center">
               Chiudi dopo aver letto il QR in cassa, oppure condividi il QR con
-              What App <b>Grazie!</b>
+              WhatsApp <b>Grazie!</b>
             </p>
             <ImWhatsapp
-              onClick={() => {
-                exportAsImage(exportRef.current);
-                //sendViaWhatsApp(imageUrl);
-              }}
+              onClick={shareImageOnWhatsApp}
               cursor="pointer"
               size={40}
             />
