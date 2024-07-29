@@ -17,7 +17,7 @@ const ModalQR = ({
 
   const exportRef = useRef();
   const [qrKey, setQrKey] = useState(0); // Force re-render of QR code
-
+  // eslint-disable-next-line to the line before
   useEffect(() => {
     setQrKey((prevKey) => prevKey + 1); // Increment key to force re-render
   }, [repetedDishStateProp]);
