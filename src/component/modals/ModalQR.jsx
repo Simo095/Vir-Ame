@@ -68,9 +68,10 @@ const ModalQR = ({
             </p>
           </Container>
         </Modal.Header>
-        <Modal.Body ref={exportRef}>
+        <Modal.Body>
           <Container className="d-flex justify-content-center">
             <QRCode
+              ref={exportRef}
               className="m-4"
               value={
                 repetedDishStateProp
