@@ -18,7 +18,10 @@ const ModalQR = ({
   const exportRef = useRef();
 
   const exportAsImage = async (el, imageFileName) => {
-    const canvas = await html2canvas(el);
+    const canvas = await html2canvas(el, {
+      scale: 2, // Increases resolution of the canvas
+      useCORS: true, // Handle cross-origin issues
+    });
     const image = canvas.toDataURL("image/png", 1.0);
     downloadImage(image, imageFileName);
   };
@@ -68,7 +71,7 @@ const ModalQR = ({
         <Modal.Body ref={exportRef}>
           <Container className="d-flex justify-content-center">
             <QRCode
-              className="m-4 p-3"
+              className="m-4"
               value={
                 repetedDishStateProp
                   ? JSON.stringify(repetedDishStateProp)
