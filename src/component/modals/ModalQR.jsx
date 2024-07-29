@@ -14,6 +14,7 @@ const ModalQR = ({
   handleCloseModalQrProp,
 }) => {
   const qntCartApp = useSelector((state) => state.cart.qnt);
+  const menu = useSelector((state) => state.menu.menu);
   const exportRef = useRef();
   const getOrderedDishesText = () => {
     return Object.keys(repetedDishStateProp)
