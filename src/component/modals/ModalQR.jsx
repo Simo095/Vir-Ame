@@ -258,6 +258,7 @@ const ModalQR = ({
     document.body.appendChild(fakeLink);
     fakeLink.click();
     document.body.removeChild(fakeLink);
+    sendViaWhatsApp(imageUrl);
   };
 
   const sendViaWhatsApp = (image) => {
@@ -324,7 +325,7 @@ const ModalQR = ({
             <ImWhatsapp
               onClick={() => {
                 exportAsImage(exportRef.current);
-                sendViaWhatsApp(imageUrl);
+                //sendViaWhatsApp(imageUrl);
               }}
               cursor="pointer"
               size={40}
