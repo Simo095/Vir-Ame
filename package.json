@@ -12,7 +12,7 @@
       "not op_mini all"
     ]
   },
-  "name": "front-end",
+  "name": "vir-ame",
   "eslintConfig": {
     "extends": [
       "react-app",
