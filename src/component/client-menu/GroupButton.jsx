@@ -22,7 +22,7 @@ const GroupButton = () => {
 
   return (
     <Container fluid className="d-flex flex-column gap-2 m-0 p-0">
-      <h1>Vir Ame</h1>
+      <h1 className="ms-2">Vir.Ame Caffè Bistrot</h1>
 
       {reparti &&
         reparti.length > 0 &&

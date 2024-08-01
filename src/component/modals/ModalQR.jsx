@@ -108,13 +108,14 @@ const ModalQR = ({
             </p>
             <p className="text-center">
               Chiudi dopo aver letto il QR in cassa, oppure condividi il QR con
-              WhatsApp <b>Grazie!</b>
+              WhatsApp{" "}
+              <ImWhatsapp
+                onClick={shareImageOnWhatsApp}
+                cursor="pointer"
+                size={40}
+              />{" "}
+              <b>Grazie!</b>
             </p>
-            <ImWhatsapp
-              onClick={shareImageOnWhatsApp}
-              cursor="pointer"
-              size={40}
-            />
           </Container>
         </Modal.Footer>
       </Modal>
