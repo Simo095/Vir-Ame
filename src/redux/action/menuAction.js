@@ -23,12 +23,9 @@ export const updateMenu = (menuData) => ({
 export const fetchMenuActionBlob = () => {
   return async (dispatch) => {
     try {
-      const ListBlobMenu = await fetch(
-        `https://arancino-mania.vercel.app/api/get`,
-        {
-          method: "GET",
-        }
-      );
+      const ListBlobMenu = await fetch(`https://vir-ame.vercel.app/api/get`, {
+        method: "GET",
+      });
 
       if (ListBlobMenu.ok) {
         dispatch(notFound(false));
@@ -77,12 +74,9 @@ export const fetchMenuActionBlob = () => {
 export const checkMenuBlob = () => {
   return async (dispatch) => {
     try {
-      const ListBlobMenu = await fetch(
-        `https://arancino-mania.vercel.app/api/get`,
-        {
-          method: "GET",
-        }
-      );
+      const ListBlobMenu = await fetch(`https://vir-ame.vercel.app/api/get`, {
+        method: "GET",
+      });
       if (ListBlobMenu.ok) {
         dispatch(notFound(false));
         const menuJson = await ListBlobMenu.json();

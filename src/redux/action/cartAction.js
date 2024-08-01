@@ -78,12 +78,9 @@ export const checkObjToDBAndMenu = (
 ) => {
   return async (dispatch) => {
     try {
-      const ListBlobMenu = await fetch(
-        `https://arancino-mania.vercel.app/api/get`,
-        {
-          method: "GET",
-        }
-      );
+      const ListBlobMenu = await fetch(`https://vir-ame.vercel.app/api/get`, {
+        method: "GET",
+      });
 
       if (ListBlobMenu.ok) {
         const menuJson = await ListBlobMenu.json();
