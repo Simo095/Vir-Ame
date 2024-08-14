@@ -77,10 +77,10 @@ export const checkMenuBlob = () => {
         dispatch(notFound(false));
         const menuJson = await ListBlobMenu.json();
         const menuFiltered = menuJson
-          .filter(file => file.pathname.startsWith(`am`))
+          .filter(file => file.pathname.includes(`am`))
           .reduce((latest, current) => {
             return new Date(current.uploadedAt) > new Date(latest.uploadedAt) ? current : latest;
-          }, menuJson[0]);
+          });
         if (!menuFiltered) throw new Error("file non trovato!" + menuFiltered);
 
         // const lastMenuInsert = menuJson.reduce((latest, current) => {
