@@ -2,39 +2,41 @@ export const ADD_MENU = "ADD_MENU";
 export const ADD_WARD = "ADD_WARD";
 export const NOT_FOUND = "NOT_FOUND";
 export const UPDATE_MENU = "UPDATE_MENU";
-export const addMenuOnStore = menuArray => ({
+export const addMenuOnStore = (menuArray) => ({
   type: ADD_MENU,
-  payload: menuArray
+  payload: menuArray,
 });
-export const addWardOnStore = wardArray => ({
+export const addWardOnStore = (wardArray) => ({
   type: ADD_WARD,
-  payload: wardArray
+  payload: wardArray,
 });
-export const notFound = condition => ({
+export const notFound = (condition) => ({
   type: NOT_FOUND,
-  payload: condition
+  payload: condition,
 });
 
-export const updateMenu = menuData => ({
+export const updateMenu = (menuData) => ({
   type: UPDATE_MENU,
-  payload: menuData
+  payload: menuData,
 });
 
 export const fetchMenuActionBlob = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     try {
       const ListBlobMenu = await fetch(`https://vir-ame.vercel.app/api/get`, {
-        method: "GET"
+        method: "GET",
       });
 
       if (ListBlobMenu.ok) {
         dispatch(notFound(false));
         const menuJson = await ListBlobMenu.json();
         const menuFiltered = menuJson
-          .filter(file => file.pathname.includes(`am`))
+          .filter((file) => file.pathname.includes(`am`))
           .reduce((latest, current) => {
-            return new Date(current.uploadedAt) > new Date(latest.uploadedAt) ? current : latest;
-          }, menuJson[0]);
+            return new Date(current.uploadedAt) > new Date(latest.uploadedAt)
+              ? current
+              : latest;
+          });
         if (!menuFiltered) throw new Error("file non trovato!" + menuFiltered);
 
         // const lastMenuInsert = menuJson.reduce((latest, current) => {
@@ -44,7 +46,9 @@ export const fetchMenuActionBlob = () => {
         const response = await fetch(menuFiltered.url);
         const objMenuResponse = await response.json();
 
-        const sortedDishes = [...objMenuResponse].sort((a, b) => a.ward.id - b.ward.id);
+        const sortedDishes = [...objMenuResponse].sort(
+          (a, b) => a.ward.id - b.ward.id
+        );
         dispatch(addMenuOnStore(sortedDishes));
         const newUniqueElements = {};
         for (const item of objMenuResponse) {
@@ -68,18 +72,20 @@ export const fetchMenuActionBlob = () => {
 };
 
 export const checkMenuBlob = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     try {
       const ListBlobMenu = await fetch(`https://vir-ame.vercel.app/api/get`, {
-        method: "GET"
+        method: "GET",
       });
       if (ListBlobMenu.ok) {
         dispatch(notFound(false));
         const menuJson = await ListBlobMenu.json();
         const menuFiltered = menuJson
-          .filter(file => file.pathname.includes(`am`))
+          .filter((file) => file.pathname.includes(`am`))
           .reduce((latest, current) => {
-            return new Date(current.uploadedAt) > new Date(latest.uploadedAt) ? current : latest;
+            return new Date(current.uploadedAt) > new Date(latest.uploadedAt)
+              ? current
+              : latest;
           });
         if (!menuFiltered) throw new Error("file non trovato!" + menuFiltered);
 
@@ -89,7 +95,9 @@ export const checkMenuBlob = () => {
 
         const response = await fetch(menuFiltered.url);
         const objMenuResponse = await response.json();
-        const sortedDishes = [...objMenuResponse].sort((a, b) => a.ward.id - b.ward.id);
+        const sortedDishes = [...objMenuResponse].sort(
+          (a, b) => a.ward.id - b.ward.id
+        );
         dispatch(addMenuOnStore(sortedDishes));
       } else {
         const errorMessage = await ListBlobMenu.text();
