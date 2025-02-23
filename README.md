@@ -1,5 +1,7 @@
-Arancino Mania 🍊
-Arancino Mania è un'app React sviluppata per offrire un'esperienza interattiva e coinvolgente per ricevere le ordinazioni da parte dei clienti per il proprio negozio/ristorante. L'app fornisce un'interfaccia semplice e intuitiva per vedere il menu consultarlo, aggiungere piatti/articoli al carrello e mandare direttamente il QR code per inserire l'ordinazione in cassa.
+Arancino Mania
+
+Arancino Mania è un'app React sviluppata per offrire un'esperienza interattiva e coinvolgente per ricevere le ordinazioni da parte dei clienti per il proprio negozio/ristorante. L'app fornisce un'interfaccia semplice e intuitiva per vedere il menu
+consultarlo, aggiungere piatti/articoli al carrello e mandare direttamente il QR code per inserire l'ordinazione in cassa.
 
 🚀 Tecnologie utilizzate
 React.js – Per lo sviluppo dell'interfaccia utente
