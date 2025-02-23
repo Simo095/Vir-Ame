@@ -17,16 +17,16 @@ Vercel – Per il deploy rapido e performante
 🛠️ Installazione e avvio locale
 Se vuoi testare l'app in locale, segui questi passaggi:
 
-Clona il repository
+Clona il repository:
 git clone https://github.com/tuo-username/arancino-mania.git
 cd arancino-mania
 
-Installa le dipendenze
-
+Installa le dipendenze:
 npm install
 Avvia il progetto
 
 npm start
 Apri http://localhost:3000 nel browser
+
 🌍 Online Demo
 L'app è disponibile online su: vir-ame.vercel.app
