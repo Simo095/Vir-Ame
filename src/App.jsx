@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchMenuActionBlob } from "./redux/action/menuAction";
-import MenuPage from "./component/client-menu/MenuPage";
+
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Alert, Container } from "react-bootstrap";
@@ -10,6 +10,7 @@ import HomePage from "./component/HomePage";
 
 const App = () => {
   const dispatch = useDispatch();
+  // eslint-disable-next-line
   const [payed, setPayed] = useState(false);
 
   useEffect(() => {
