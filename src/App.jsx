@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchMenuActionBlob } from "./redux/action/menuAction";
 import MenuPage from "./component/client-menu/MenuPage";
@@ -10,12 +10,13 @@ import HomePage from "./component/HomePage";
 
 const App = () => {
   const dispatch = useDispatch();
+  const [payed, setPayed] = useState(false);
 
   useEffect(() => {
     dispatch(fetchMenuActionBlob());
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return (
+  return payed ? (
     <Container
       style={{ minWidth: "320px", maxWidth: "1000px" }}
       fluid
@@ -28,6 +29,21 @@ const App = () => {
         </Routes>
       </BrowserRouter>
     </Container>
+  ) : (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        backgroundColor: "white",
+      }}
+    >
+      <Alert className="text-center" variant="danger">
+        <strong>Warning:</strong>
+        <p>Create React App is no longer supported. Please update your code.</p>
+      </Alert>
+    </div>
   );
 };
 
